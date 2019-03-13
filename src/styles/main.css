@@ -1,0 +1,78 @@
+html {
+   box-sizing: border-box;
+}
+
+
+.main-container {
+   display: flex;
+   max-width: 1200px; 
+   margin: 0 auto;
+   flex-direction: column;
+}
+h1 {
+   width:100%;
+   margin: 0 auto;
+}
+
+form {
+   display: flex;
+   flex-direction: column;
+   margin: auto;
+   justify-items: center;
+   min-width: 420px;
+}
+
+fieldset {
+   width: 100%;
+   margin: auto;
+   padding:10px;
+   display: inline;
+}
+
+.searchButton, input {
+   float: right;
+   
+}
+
+#search-container {
+   width: 100%;
+   margin: auto;
+   display: flex;
+   justify-content: center;
+}
+
+
+ol {
+   width: 75%;
+   font-size: 18px;
+}
+
+
+span {
+   border: 1px solid black;
+   display: flex;
+   font-size: 14px;
+   line-height: 1.3em;
+   margin:3px;
+   min-width:400px;
+   flex-wrap: wrap;
+
+}
+li {
+   width: 75%;
+   float: left;
+   padding: 3px;  
+}
+
+.saveButton {
+   float: right;
+   margin: 3px;
+   width:20%;
+   flex-grow: 0;
+}
+
+
+
+
+
+
