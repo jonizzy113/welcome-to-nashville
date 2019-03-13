@@ -2,11 +2,16 @@ html {
    box-sizing: border-box;
 }
 
+
 .main-container {
    display: flex;
    max-width: 1200px; 
    margin: 0 auto;
    flex-direction: column;
+}
+h1 {
+   width:100%;
+   margin: 0 auto;
 }
 
 form {
