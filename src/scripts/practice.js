@@ -11,8 +11,9 @@ const getConcertAPI = (keyword) => {
          const artistList = data.map(element => {
             const combo = [element.name, element.dates.start.localDate]
             return combo;
-}); return artistList
-})}
+         }); return artistList
+      })
+}
 
 // console.log(getConcertAPI())
 
@@ -25,3 +26,12 @@ const getConcertAPI = (keyword) => {
 //          }); return parkInfo})};
 
 //        console.log(getParksAPI())
+
+// fetch("https://developers.zomato.com/api/v2.1/search?entity_id=1138&entity_type=city&start=first&sort=rating", {
+//    headers: {
+//       "Accept": "application/json",
+//       "user-key": "f86bf5c13d03c028aafe4818c8c4aa41"
+//    }
+// })
+//    .then(r => r.json())
+//    .then(results => console.log((results)))
