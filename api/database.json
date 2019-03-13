@@ -1,0 +1,13 @@
+{
+        "itinerary": [
+          {
+            "id": 1,
+            "park": "hey",
+            "restaurant": "hola",
+            "event": "test",
+            "concert": "test"
+           
+          }
+
+    ]
+}
