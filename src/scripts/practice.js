@@ -11,8 +11,9 @@ const getConcertAPI = (keyword) => {
          const artistList = data.map(element => {
             const combo = [element.name, element.dates.start.localDate]
             return combo;
-}); return artistList
-})}
+         }); return artistList
+      })
+}
 
 // console.log(getConcertAPI())
 

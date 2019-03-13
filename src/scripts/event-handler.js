@@ -3,3 +3,7 @@ function searchAPI(event) {
    getConcertAPI(concertInputValue).then(searchResultsObject)
 }
 
+function searchAPI(event) {
+   const parkInputValue = document.querySelector("#parkInput").value;
+   getParksAPI(parkInputValue).then(searchResultsObject)
+}
