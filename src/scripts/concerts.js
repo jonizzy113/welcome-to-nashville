@@ -2,7 +2,9 @@
 
 const getConcertAPI = (keyword) => {
    return fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=nashville&size=10&apikey=jSWyAXpUAgvbhTQCtCaIYdCfWf356IYR&classificationName=music&keyword=${keyword}`)
-      .then(response => response.json()).then(data => {
+      .then(response => response.json())
+      
+      .then(data => {
          const concertInfo = data._embedded.events;
          return concertInfo
       }).then(data => {

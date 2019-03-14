@@ -90,7 +90,6 @@ const createDOM = () => {
   itineraryContainer.appendChild((buildElementWithText("div", "", "event-container")));
   itineraryContainer.appendChild((buildElementWithText("div", "", "concert-container")));
   mainCont.appendChild(itineraryContainer);
-
 };
 
 /*function that accepts an array of arrays, creates the structure for the search results, and appends them to the dom when the search button is clicked.*/

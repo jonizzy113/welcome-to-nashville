@@ -34,6 +34,7 @@ function eventDelegation(e) {
    let createResultList = document.querySelector("ol");
    let list = document.querySelectorAll("li");
    let arrayList = Array.from(list);
+   buildElementWithText("section")
    arrayList.forEach(itineraryItem => {
       if (target === itineraryItem && createResultList.id === "park") {
          buildParkItems(itineraryItem.textContent, itineraryItem.className);

@@ -14,9 +14,5 @@ const getEventAPI = (keyword) => {
      const eventsCombo = data.map(info => {
         const combolist = [info.name.text, info.venue.address.localized_address_display]
         return combolist;
-     });
-     return eventsCombo
-  }).then(data => {
-     return data
-  })
-};
+     }); return eventsCombo.slice(0,10);
+   })}
