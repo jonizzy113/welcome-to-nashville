@@ -30,7 +30,7 @@ fieldset {
 }
 
 .searchButton, input {
-   float: right;
+   /* float: right; */
    
 }
 
@@ -60,12 +60,12 @@ span {
 }
 li {
    width: 75%;
-   float: left;
+   /* float: left; */
    padding: 3px;  
 }
 
 .saveButton {
-   float: right;
+   /* float: right; */
    margin: 3px;
    width:20%;
    flex-grow: 0;
