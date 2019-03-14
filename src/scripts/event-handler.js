@@ -5,6 +5,7 @@ function searchParkAPI(event) {
    });
 }
 
+
 function searchRestaurantAPI(event) {
    const restaurantInputValue = document.querySelector("#restaurantInput").value;
    getRestaurantAPI(restaurantInputValue).then(data => {
@@ -27,28 +28,28 @@ function searchConcertAPI(event) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 function eventDelegation(e) {
    let target = e.target
-   let list = document.querySelectorAll('li')
-   let arrayList = Array.from(list)
+   let createResultList = document.querySelector("ol")
+   let list = document.querySelectorAll("li");
+   let arrayList = Array.from(list);
    arrayList.forEach(itineraryItem => {
-      if (target === itineraryItem) {
-         buildItineraryItems(itineraryItem.textContent, itineraryItem.className)
-      }
+      if (target === itineraryItem && createResultList.id === "park") {
+         buildParkItems(itineraryItem.textContent, itineraryItem.className)
+      };
+      if (target === itineraryItem && createResultList.id === "restaurant") {
+         buildRestaurantItems(itineraryItem.textContent, itineraryItem.className)
+      };
+      if (target === itineraryItem && createResultList.id === "event") {
+         buildEventItems(itineraryItem.textContent, itineraryItem.className)
+      };
+      if (target === itineraryItem && createResultList.id === "concert") {
+         buildConcertItems(itineraryItem.textContent, itineraryItem.className)
+      };
    })
 }
+
+
 
 
 

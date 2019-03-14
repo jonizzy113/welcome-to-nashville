@@ -10,21 +10,22 @@ const getConcertAPI = (keyword) => {
             const combo = [element.name, element.dates.start.localDate]
             return combo;
          });
-         return artistList
+         return artistList.slice(0,10)
       })
 }
 
 
 
-const getParkAPI = () => {
-   return fetch("https://data.nashville.gov/resource/xbru-cfzi.json?$$app_token=2Y38BxOLg7C4PZMAg91ob4maW")
-      .then(response => response.json()).then(data => {
-         const parkInfo = data.map(element => {
-            const comboInfo = [element.park_name, element.mapped_location_address]
-            return comboInfo
-         });
-         return parkInfo
-      })
+const getParkAPI = (park1) => {
+   console.log(park1)
+   return fetch(`https://data.nashville.gov/resource/xbru-cfzi.json?${park1}=Yes`)
+       .then(parks => parks.json())
+       .then(data => {
+           const parkInfo = data.map(element => {
+               const comboInfo = [element.park_name, element.mapped_location_address]
+               return comboInfo
+           }); return parkInfo
+       })
 };
 
 
@@ -46,7 +47,7 @@ const getEventAPI = (keyword) => {
       });
       return eventsCombo
    }).then(data => {
-      return data
+      return data.slice(0,10)
    })
 };
 
@@ -71,7 +72,7 @@ const getRestaurantAPI = (keyword) => {
          const comboData = data.map(info => {
             comboInfo = [info.name, info.location.address]
             return comboInfo;
-         }); return comboData;
+         }); return comboData.slice(0,10);
       })
 };
 
