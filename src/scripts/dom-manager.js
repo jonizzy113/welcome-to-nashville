@@ -19,7 +19,7 @@ const buildButtonElement = (elementId, elementText, elementClass) => {
   button.id = elementId;
   button.setAttribute("type", "submit");
   button.textContent = elementText;
-  button.classList.add(elementClass)
+  button.classList.add(elementClass);
   return button;
 }
 
@@ -51,12 +51,12 @@ const buildInputForm = () => {
 
 //function to create initial HTML structures
 const createDOM = () => {
-  mainCont.appendChild(buildElementWithText("h1", 'Nashville Itinerary Planner'));
+  mainCont.appendChild(buildElementWithText("h1", "Nashville Itinerary Planner"));
   buildInputForm();
 
   mainCont.appendChild(buildElementWithText("section", "", "search-container"));
   mainCont.appendChild(buildElementWithText("section", "", "itinerary-container"));
-}
+};
 
 
 /*function that accepts an array of arrays, creates the structure for the search results, and appends them to the dom when the search button is clicked.*/
@@ -73,11 +73,10 @@ const searchResultsObject = (array) => {
   });
 
   searchContainer.appendChild(createResultList);
-}
+};
 
 
 
 // const buildItineraryForm = () => {
 
 // }
-
