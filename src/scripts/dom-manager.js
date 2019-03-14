@@ -26,13 +26,13 @@ const buildButtonElement = (elementId, elementText, elementClass) => {
 
 
 const mainCont = document.querySelector(".main-container");
-
 //function that creates the template for building input fields 
 const fieldsetCreator = (itItem) => {
   const formFieldSet = (buildElementWithText("fieldset"));
   formFieldSet.appendChild(buildElementWithText("label", `Search for ${itItem}s: `));
   formFieldSet.appendChild(buildInputElement("text", `${itItem}Input`));
   formFieldSet.appendChild(buildButtonElement(`${itItem}Button`, "Search", "searchButton"));
+  // formFieldSet.appendChild(parkSelectElement())
   return formFieldSet;
 };
 
@@ -41,10 +41,11 @@ const buildInputForm = () => {
   const formSection = document.createElement("form");
   formSection.id = "form-container";
   formSection.setAttribute("onsubmit", "return false");
-  formSection.appendChild(fieldsetCreator("park"));
+  formSection.appendChild(fieldsetCreator1("park"));
   formSection.appendChild(fieldsetCreator("restaurant"));
   formSection.appendChild(fieldsetCreator("event"));
   formSection.appendChild(fieldsetCreator("concert"));
+  // formSection.appendChild(parkSelectElement())
   mainCont.appendChild(formSection);
 };
 
