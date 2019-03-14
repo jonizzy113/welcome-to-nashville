@@ -60,20 +60,22 @@ const createDOM = () => {
 
 
 /*function that accepts an array of arrays, creates the structure for the search results, and appends them to the dom when the search button is clicked.*/
-const searchResultsObject = (array) => {
+const searchResultsObject = (array, API) => {
   const searchContainer = document.querySelector("#search-container");
-  while (searchContainer.firstChild) { searchContainer.removeChild(searchContainer.firstChild); }
-  const createResultList = (buildElementWithText("ol", "Search Results"));
+  while (searchContainer.firstChild) {
+    searchContainer.removeChild(searchContainer.firstChild);
+  }
+  const createResultList = (buildElementWithText("ol", "Click item to add:", API));
   array.forEach((obj, index) => {
-    const createListItem = buildElementWithText("li", obj.join(" : "), `item${index}`);
-    const createSpan = document.createElement("span");
+    const createListItem = buildElementWithText("li", obj.join(" : "), `${API}Item${index}`);
+    createListItem.classList.add(API)
+    const createSpan = buildElementWithText("span", "", index);
     createSpan.appendChild(createListItem);
-    createSpan.appendChild(buildButtonElement(`saveB${index}`, "Save", "saveButton"));
+
     createResultList.appendChild(createSpan);
   });
-
   searchContainer.appendChild(createResultList);
-};
+}
 
 
 
