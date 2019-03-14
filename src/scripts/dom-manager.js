@@ -21,19 +21,23 @@ const buildButtonElement = (elementId, elementText, elementClass) => {
   button.textContent = elementText;
   button.classList.add(elementClass);
   return button;
-};
-
+}
 
 
 
 const mainCont = document.querySelector(".main-container");
+<<<<<<< HEAD
 
 //function that creates the template for building input fields
+=======
+//function that creates the template for building input fields 
+>>>>>>> master
 const fieldsetCreator = (itItem) => {
   const formFieldSet = (buildElementWithText("fieldset"));
   formFieldSet.appendChild(buildElementWithText("label", `Search for ${itItem}s: `));
   formFieldSet.appendChild(buildInputElement("text", `${itItem}Input`));
   formFieldSet.appendChild(buildButtonElement(`${itItem}Button`, "Search", "searchButton"));
+  // formFieldSet.appendChild(parkSelectElement())
   return formFieldSet;
 };
 
@@ -70,10 +74,15 @@ const buildInputForm = () => {
   const formSection = document.createElement("form");
   formSection.id = "form-container";
   formSection.setAttribute("onsubmit", "return false");
+<<<<<<< HEAD
   formSection.appendChild(dropdownCreator("park"));
+=======
+  formSection.appendChild(fieldsetCreator1("park"));
+>>>>>>> master
   formSection.appendChild(fieldsetCreator("restaurant"));
   formSection.appendChild(fieldsetCreator("event"));
   formSection.appendChild(fieldsetCreator("concert"));
+  // formSection.appendChild(parkSelectElement())
   mainCont.appendChild(formSection);
 };
 
@@ -92,7 +101,14 @@ const createDOM = () => {
   itineraryContainer.appendChild((buildElementWithText("div", "", "concert-container")));
   mainCont.appendChild(itineraryContainer);
 
+<<<<<<< HEAD
 };
+=======
+  mainCont.appendChild(buildElementWithText("section", "", "search-container"));
+  mainCont.appendChild(buildElementWithText("section", "", "itinerary-container"));
+};
+
+>>>>>>> master
 
 /*function that accepts an array of arrays, creates the structure for the search results, and appends them to the dom when the search button is clicked.*/
 const searchResultsObject = (array, API) => {
@@ -103,7 +119,11 @@ const searchResultsObject = (array, API) => {
   const createResultList = (buildElementWithText("ol", "Click item to add:", API));
   array.forEach((obj, index) => {
     const createListItem = buildElementWithText("li", obj.join(" : "), `${API}Item${index}`);
+<<<<<<< HEAD
     createListItem.classList.add(API);
+=======
+    createListItem.classList.add(API)
+>>>>>>> master
     const createSpan = buildElementWithText("span", "", index);
     createSpan.appendChild(createListItem);
 
@@ -169,7 +189,11 @@ const buildConcertItems = (string, ID) => {
 
 
 
+<<<<<<< HEAD
 
 // dont think we need it
 // const saveButton = buildButtonElement(`saveB${index}`, "Save", "saveButton")
 // createSpan.appendChild(saveButton);
+=======
+// }
+>>>>>>> master
