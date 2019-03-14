@@ -19,21 +19,20 @@ const buildButtonElement = (elementId, elementText, elementClass) => {
   button.id = elementId;
   button.setAttribute("type", "submit");
   button.textContent = elementText;
-  button.classList.add(elementClass)
+  button.classList.add(elementClass);
   return button;
-};
-
+}
 
 
 
 const mainCont = document.querySelector(".main-container");
-
 //function that creates the template for building input fields 
 const fieldsetCreator = (itItem) => {
   const formFieldSet = (buildElementWithText("fieldset"));
   formFieldSet.appendChild(buildElementWithText("label", `Search for ${itItem}s: `));
   formFieldSet.appendChild(buildInputElement("text", `${itItem}Input`));
   formFieldSet.appendChild(buildButtonElement(`${itItem}Button`, "Search", "searchButton"));
+  // formFieldSet.appendChild(parkSelectElement())
   return formFieldSet;
 };
 
@@ -42,21 +41,22 @@ const buildInputForm = () => {
   const formSection = document.createElement("form");
   formSection.id = "form-container";
   formSection.setAttribute("onsubmit", "return false");
-  formSection.appendChild(fieldsetCreator("park"));
+  formSection.appendChild(fieldsetCreator1("park"));
   formSection.appendChild(fieldsetCreator("restaurant"));
   formSection.appendChild(fieldsetCreator("event"));
   formSection.appendChild(fieldsetCreator("concert"));
+  // formSection.appendChild(parkSelectElement())
   mainCont.appendChild(formSection);
 };
 
 //function to create initial HTML structures
 const createDOM = () => {
-  mainCont.appendChild(buildElementWithText("h1", 'Nashville Itinerary Planner'));
+  mainCont.appendChild(buildElementWithText("h1", "Nashville Itinerary Planner"));
   buildInputForm();
 
   mainCont.appendChild(buildElementWithText("section", "", "search-container"));
   mainCont.appendChild(buildElementWithText("section", "", "itinerary-container"));
-}
+};
 
 
 /*function that accepts an array of arrays, creates the structure for the search results, and appends them to the dom when the search button is clicked.*/
@@ -73,11 +73,10 @@ const searchResultsObject = (array) => {
   });
 
   searchContainer.appendChild(createResultList);
-}
+};
 
 
 
 // const buildItineraryForm = () => {
 
 // }
-
