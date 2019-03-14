@@ -42,7 +42,7 @@ const buildInputForm = () => {
   const formSection = document.createElement("form");
   formSection.id = "form-container";
   formSection.setAttribute("onsubmit", "return false");
-  formSection.appendChild(fieldsetCreator("park"));
+  formSection.appendChild(fieldsetCreator1("park"));
   formSection.appendChild(fieldsetCreator("restaurant"));
   formSection.appendChild(fieldsetCreator("event"));
   formSection.appendChild(fieldsetCreator("concert"));
