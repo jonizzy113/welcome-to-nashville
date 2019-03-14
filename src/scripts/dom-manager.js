@@ -21,19 +21,18 @@ const buildButtonElement = (elementId, elementText, elementClass) => {
   button.textContent = elementText;
   button.classList.add(elementClass)
   return button;
-};
-
+}
 
 
 
 const mainCont = document.querySelector(".main-container");
-
 //function that creates the template for building input fields 
 const fieldsetCreator = (itItem) => {
   const formFieldSet = (buildElementWithText("fieldset"));
   formFieldSet.appendChild(buildElementWithText("label", `Search for ${itItem}s: `));
   formFieldSet.appendChild(buildInputElement("text", `${itItem}Input`));
   formFieldSet.appendChild(buildButtonElement(`${itItem}Button`, "Search", "searchButton"));
+  // formFieldSet.appendChild(parkSelectElement())
   return formFieldSet;
 };
 
@@ -42,10 +41,11 @@ const buildInputForm = () => {
   const formSection = document.createElement("form");
   formSection.id = "form-container";
   formSection.setAttribute("onsubmit", "return false");
-  formSection.appendChild(fieldsetCreator("park"));
+  formSection.appendChild(fieldsetCreator1("park"));
   formSection.appendChild(fieldsetCreator("restaurant"));
   formSection.appendChild(fieldsetCreator("event"));
   formSection.appendChild(fieldsetCreator("concert"));
+  // formSection.appendChild(parkSelectElement())
   mainCont.appendChild(formSection);
 };
 
@@ -62,16 +62,16 @@ const createDOM = () => {
 /*function that accepts an array of arrays, creates the structure for the search results, and appends them to the dom when the search button is clicked.*/
 const searchResultsObject = (array) => {
   const searchContainer = document.querySelector("#search-container");
-  while (searchContainer.firstChild) {searchContainer.removeChild(searchContainer.firstChild);}
+  while (searchContainer.firstChild) { searchContainer.removeChild(searchContainer.firstChild); }
   const createResultList = (buildElementWithText("ol", "Search Results"));
-   array.forEach((obj, index) =>  {
+  array.forEach((obj, index) => {
     const createListItem = buildElementWithText("li", obj.join(" : "), `item${index}`);
     const createSpan = document.createElement("span");
     createSpan.appendChild(createListItem);
     createSpan.appendChild(buildButtonElement(`saveB${index}`, "Save", "saveButton"));
     createResultList.appendChild(createSpan);
   });
-  
+
   searchContainer.appendChild(createResultList);
 }
 
