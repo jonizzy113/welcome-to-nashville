@@ -19,7 +19,7 @@ const buildButtonElement = (elementId, elementText, elementClass) => {
   button.id = elementId;
   button.setAttribute("type", "submit");
   button.textContent = elementText;
-  button.classList.add(elementClass)
+  button.classList.add(elementClass);
   return button;
 };
 
@@ -28,7 +28,7 @@ const buildButtonElement = (elementId, elementText, elementClass) => {
 
 const mainCont = document.querySelector(".main-container");
 
-//function that creates the template for building input fields 
+//function that creates the template for building input fields
 const fieldsetCreator = (itItem) => {
   const formFieldSet = (buildElementWithText("fieldset"));
   formFieldSet.appendChild(buildElementWithText("label", `Search for ${itItem}s: `));
@@ -51,13 +51,12 @@ const buildOptionElement = (value, text, id) => {
   const option = document.createElement("option");
   option.value = value;
   option.textContent = text;
-  return option
-
-}
+  return option;
+};
 
 const parkSelectElement = () => {
   const formSelect = document.createElement("select");
-  formSelect.id = "parkInput"
+  formSelect.id = "parkInput";
   formSelect.appendChild(buildOptionElement("dog_park", "Dog Park"));
   formSelect.appendChild(buildOptionElement("boat_launch", "Boat Launch"));
   formSelect.appendChild(buildOptionElement("skate_park", "Skate Park"));
@@ -81,7 +80,7 @@ const buildInputForm = () => {
 
 //function to create initial HTML structures
 const createDOM = () => {
-  mainCont.appendChild(buildElementWithText("h1", 'Nashville Itinerary Planner'));
+  mainCont.appendChild(buildElementWithText("h1", "Nashville Itinerary Planner"));
   buildInputForm();
   const searchContainer = buildElementWithText("section", "", "search-container");
   searchContainer.addEventListener("click", eventDelegation);
@@ -93,8 +92,7 @@ const createDOM = () => {
   itineraryContainer.appendChild((buildElementWithText("div", "", "concert-container")));
   mainCont.appendChild(itineraryContainer);
 
-}
-
+};
 
 /*function that accepts an array of arrays, creates the structure for the search results, and appends them to the dom when the search button is clicked.*/
 const searchResultsObject = (array, API) => {
@@ -105,51 +103,51 @@ const searchResultsObject = (array, API) => {
   const createResultList = (buildElementWithText("ol", "Click item to add:", API));
   array.forEach((obj, index) => {
     const createListItem = buildElementWithText("li", obj.join(" : "), `${API}Item${index}`);
-    createListItem.classList.add(API)
+    createListItem.classList.add(API);
     const createSpan = buildElementWithText("span", "", index);
     createSpan.appendChild(createListItem);
 
     createResultList.appendChild(createSpan);
   });
   searchContainer.appendChild(createResultList);
-}
+};
 
 
 
 
 const buildParkItems = (string, ID) => {
   const parkContainer = document.querySelector("#park-container");
-  const createParkItem = buildElementWithText("p", string, ID)
+  const createParkItem = buildElementWithText("p", string, ID);
   while (parkContainer.firstChild) {
     parkContainer.removeChild(parkContainer.firstChild);
   }
-  parkContainer.appendChild(createParkItem)
-}
+  parkContainer.appendChild(createParkItem);
+};
 
 const buildRestaurantItems = (string, ID) => {
   const restaurantContainer = document.querySelector("#restaurant-container");
-  const createRestaurantItem = buildElementWithText("p", string, ID)
+  const createRestaurantItem = buildElementWithText("p", string, ID);
   while (restaurantContainer.firstChild) {
     restaurantContainer.removeChild(restaurantContainer.firstChild);
-  }
-  restaurantContainer.appendChild(createRestaurantItem)
-}
+  };
+  restaurantContainer.appendChild(createRestaurantItem);
+};
 const buildEventItems = (string, ID) => {
   const eventContainer = document.querySelector("#event-container");
-  const createEventItem = buildElementWithText("p", string, ID)
+  const createEventItem = buildElementWithText("p", string, ID);
   while (eventContainer.firstChild) {
     eventContainer.removeChild(eventContainer.firstChild);
-  }
-  eventContainer.appendChild(createEventItem)
-}
+  };
+  eventContainer.appendChild(createEventItem);
+};
 const buildConcertItems = (string, ID) => {
   const concertContainer = document.querySelector("#concert-container");
-  const createConcertItem = buildElementWithText("p", string, ID)
+  const createConcertItem = buildElementWithText("p", string, ID);
   while (concertContainer.firstChild) {
     concertContainer.removeChild(concertContainer.firstChild);
   }
-  concertContainer.appendChild(createConcertItem)
-}
+  concertContainer.appendChild(createConcertItem);
+};
 
 
 

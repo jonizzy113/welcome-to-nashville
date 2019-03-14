@@ -2,20 +2,20 @@
 
 createDOM();
 
-const concertButton = document.querySelector("#concertButton")
+const concertButton = document.querySelector("#concertButton");
 
 concertButton.addEventListener("click", searchConcertAPI);
 
 
-const parkButton = document.querySelector("#parkButton")
+const parkButton = document.querySelector("#parkButton");
 
 parkButton.addEventListener("click", searchParkAPI);
 
-const eventButton = document.querySelector("#eventButton")
+const eventButton = document.querySelector("#eventButton");
 
-eventButton.addEventListener("click", searchEventAPI)
+eventButton.addEventListener("click", searchEventAPI);
 
-const restaurantButton = document.querySelector("#restaurantButton")
+const restaurantButton = document.querySelector("#restaurantButton");
 
-restaurantButton.addEventListener("click", searchRestaurantAPI)
+restaurantButton.addEventListener("click", searchRestaurantAPI);
 
