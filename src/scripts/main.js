@@ -2,7 +2,7 @@
 
 createDOM();
 
-const concertButton = document.querySelector("#concertButton")
+const concertButton = document.querySelector("#concertButton");
 
 
-concertButton.addEventListener('click', searchAPI);
+concertButton.addEventListener("click", searchAPI);
