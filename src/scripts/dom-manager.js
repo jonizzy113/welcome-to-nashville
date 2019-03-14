@@ -28,7 +28,7 @@ const buildButtonElement = (elementId, elementText, elementClass) => {
 
 const mainCont = document.querySelector(".main-container");
 
-//function that creates the template for building input fields 
+//function that creates the template for building input fields
 const fieldsetCreator = (itItem) => {
   const formFieldSet = (buildElementWithText("fieldset"));
   formFieldSet.appendChild(buildElementWithText("label", `Search for ${itItem}s: `));
