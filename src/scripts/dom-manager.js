@@ -53,31 +53,64 @@ const buildInputForm = () => {
 const createDOM = () => {
   mainCont.appendChild(buildElementWithText("h1", 'Nashville Itinerary Planner'));
   buildInputForm();
-
-  mainCont.appendChild(buildElementWithText("section", "", "search-container"));
+  const searchContainer = buildElementWithText("section", "", "search-container")
+  searchContainer.addEventListener("click", eventDelegation);
+  mainCont.appendChild(searchContainer);
   mainCont.appendChild(buildElementWithText("section", "", "itinerary-container"));
 }
 
 
 /*function that accepts an array of arrays, creates the structure for the search results, and appends them to the dom when the search button is clicked.*/
-const searchResultsObject = (array) => {
+const searchResultsObject = (array, API) => {
   const searchContainer = document.querySelector("#search-container");
-  while (searchContainer.firstChild) {searchContainer.removeChild(searchContainer.firstChild);}
-  const createResultList = (buildElementWithText("ol", "Search Results"));
-   array.forEach((obj, index) =>  {
-    const createListItem = buildElementWithText("li", obj.join(" : "), `item${index}`);
-    const createSpan = document.createElement("span");
+  while (searchContainer.firstChild) {
+    searchContainer.removeChild(searchContainer.firstChild);
+  }
+  const createResultList = (buildElementWithText("ol", "Click item to add:"));
+  array.forEach((obj, index) => {
+    const createListItem = buildElementWithText("li", obj.join(" : "), `${API}Item${index}`);
+    createListItem.classList.add(API)
+    const createSpan = buildElementWithText("span", "", index);
     createSpan.appendChild(createListItem);
-    createSpan.appendChild(buildButtonElement(`saveB${index}`, "Save", "saveButton"));
+
     createResultList.appendChild(createSpan);
   });
-  
   searchContainer.appendChild(createResultList);
 }
 
 
 
-// const buildItineraryForm = () => {
 
-// }
+const buildItineraryItems = (string, ID) => {
+  const itineraryContainer = document.querySelector("#itinerary-container");
+  const createItineraryItem = buildElementWithText("p", string, ID)
+  while (itineraryContainer.firstChild) {
+    itineraryContainer.removeChild(itineraryContainer.firstChild);
+  }
+  itineraryContainer.appendChild(createItineraryItem)
+}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// dont think we need it
+// const saveButton = buildButtonElement(`saveB${index}`, "Save", "saveButton")
+// createSpan.appendChild(saveButton);
