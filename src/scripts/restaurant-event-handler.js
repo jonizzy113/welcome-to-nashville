@@ -24,7 +24,7 @@ const getRestaurantAPI = (keyword) => {
                 `https://developers.zomato.com/api/v2.1/search?entity_id=1138&entity_type=city&start=first&sort=rating&q=${keyword}`, {
                         headers: {
                                 Accept: "application/json",
-                                "user-key": "f86bf5c13d03c028aafe4818c8c4aa41"
+                                "user-key": "8ee4b852db1b6e2be24fa391c91541db"
                         }
                 }
         )
