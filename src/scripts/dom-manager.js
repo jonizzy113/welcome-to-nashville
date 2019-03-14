@@ -32,7 +32,6 @@ const fieldsetCreator = (itItem) => {
   formFieldSet.appendChild(buildElementWithText("label", `Search for ${itItem}s: `));
   formFieldSet.appendChild(buildInputElement("text", `${itItem}Input`));
   formFieldSet.appendChild(buildButtonElement(`${itItem}Button`, "Search", "searchButton"));
-  // formFieldSet.appendChild(parkSelectElement())
   return formFieldSet;
 };
 
@@ -115,6 +114,7 @@ const searchResultsObject = (array, API) => {
 
 
 
+
 const buildParkItems = (string, ID) => {
   const parkContainer = document.querySelector("#park-container");
   const createParkItem = buildElementWithText("p", string, ID);
@@ -148,32 +148,3 @@ const buildConcertItems = (string, ID) => {
   }
   concertContainer.appendChild(createConcertItem);
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<<<<<<< HEAD
-
-// dont think we need it
-// const saveButton = buildButtonElement(`saveB${index}`, "Save", "saveButton")
-// createSpan.appendChild(saveButton);
-=======
-// }
->>>>>>> master

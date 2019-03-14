@@ -23,15 +23,9 @@ form {
 }
 
 fieldset {
-   width: 100%;
    margin: auto;
    padding:10px;
    display: inline;
-}
-
-.searchButton, input {
-   /* float: right; */
-   
 }
 
 #search-container {
@@ -59,28 +53,11 @@ span {
 
 }
 li {
-<<<<<<< HEAD
    width: 100%;
    float: left;
    padding: 3px;  
 }
 
-/* .saveButton {
-   float: right;
-=======
-   width: 75%;
-   /* float: left; */
-   padding: 3px;  
-}
-
-.saveButton {
-   /* float: right; */
->>>>>>> master
-   margin: 3px;
-   width:20%;
-   flex-grow: 0;
-   display: none;
-} */
 
 span:hover {
    background-color: lightblue;
