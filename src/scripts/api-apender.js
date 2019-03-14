@@ -1,28 +1,28 @@
 
-let iteniraryContainer = document.querySelector("#itenirary-container")
+let itineraryContainer = document.querySelector("#itinerary-container")
 
 
 
-const buildHtmlForItenirary = iteniraryObject => {
-   iteniraryContainer.appendChild(buildElementWithText("p", iteniraryObject.park, "domItenirary"));
-   iteniraryContainer.appendChild(buildElementWithText("p", iteniraryObject.restaurant, "domItenirary"));
-   iteniraryContainer.appendChild(buildElementWithText("p", iteniraryObject.event, "domItenirary"));
-   iteniraryContainer.appendChild(buildElementWithText("p", iteniraryObject.concert, "domItenirary"));
+const buildHtmlForitinerary = itineraryObject => {
+   itineraryContainer.appendChild(buildElementWithText("p", itineraryObject.park, "domitinerary"));
+   itineraryContainer.appendChild(buildElementWithText("p", itineraryObject.restaurant, "domitinerary"));
+   itineraryContainer.appendChild(buildElementWithText("p", itineraryObject.event, "domitinerary"));
+   itineraryContainer.appendChild(buildElementWithText("p", itineraryObject.concert, "domitinerary"));
 
 
 }
 
-const pullItenirary = () => {
+const pullItinerary = () => {
    return fetch("http://localhost:8088/itinerary")
       .then(response => response.json())
 }
 
-const appendItenirarytoDom = iteniraryArray => {
+const appendItinerarytoDom = itineraryArray => {
 
-   iteniraryArray.forEach(itenirary => {
-     buildHtmlForItenirary(itenirary);
+   itineraryArray.forEach(itinerary => {
+     buildHtmlForitinerary(itinerary);
    });
 
 }
 
-pullItenirary().then(parsedResponse => appendItenirarytoDom(parsedResponse));
+pullItinerary().then(parsedResponse => appendItinerarytoDom(parsedResponse));
