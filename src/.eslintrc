@@ -7,9 +7,9 @@
         }
     },
     "rules": {
-        "semi": 1,
+        "semi": 0,
         "quotes": [ "warn", "double"],
-        "eqeqeq": 1,
-        "no-trailing-spaces": 1
+        "eqeqeq": 0,
+        "no-trailing-spaces": 0
     }
   }
