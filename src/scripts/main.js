@@ -20,3 +20,12 @@ restaurantButton.addEventListener("click", searchRestaurantAPI);
 
 concertButton.addEventListener("click", searchConcertAPI);
 
+
+
+
+
+// if (parkDiv.hasChildNodes && restaurantDiv.hasChildNodes && eventDiv.hasChildNodes && concertDiv.hasChildNodes) {
+//    console.log("hello")}
+
+
+
