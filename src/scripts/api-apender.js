@@ -25,8 +25,8 @@
 // pullItinerary().then(parsedResponse => appendItinerarytoDom(parsedResponse));
 
 const postItinerary = (newList) => {
-   return fetch("http://localhost:8088/itinerary/1", {
-         method: "PUT",
+   return fetch("http://localhost:8088/itinerary", {
+         method: "POST",
          body: JSON.stringify(newList),
          headers: {
             "Accept" : "application/json",
@@ -35,3 +35,15 @@ const postItinerary = (newList) => {
       })
       .then(response => response.json())
 }
+
+
+const getItinerary = (getIt) => {
+   return fetch("http://localhost:8088/itinerary")
+      .then(response => response.json()).then(data => {
+        let mapData = data.map(element => {
+           const key = Object.values(element);
+           return key   
+         });
+          return mapData.slice(0,5);
+      
+})};

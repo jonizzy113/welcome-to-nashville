@@ -1,10 +1,11 @@
 {
   "itinerary": [
     {
-      "Park": "Shelby Park : Shelby Ave at South 20th St",
-      "Restaurant": "Soy Teriyaki Bistro : 5008 Maryland Way, Brentwood 37027",
-      "Event": "2019 Nashville Boogie Vintage Weekender  : 2800 Opryland Drive, Nashville, TN 37214",
-      "Concert": "Eric Church: Double Down Tour : Nissan Stadium",
+      "Park": "Two Rivers Park : 3150 McGavock Pike",
+      "Restaurant": "Arnold's Country Kitchen : 605 8th Avenue S, Nashville 37203",
+      "Event": "Chrism Mass : 2800 McGavock Pike, Nashville, TN 37214",
+      "Concert": "Elton John: Farewell Yellow Brick Road : Bridgestone Arena",
+      "Name": "hi",
       "id": 1
     }
   ]

@@ -29,6 +29,8 @@ function searchConcertAPI(event) {
 }
 
 
+// listener function that adds search items to the itinerary list on DOM when clicked, it also adds a save button to DOM once all four list items are in the list.
+
 function eventDelegation(e) {
    let target = e.target;
    let createResultList = document.querySelector("ol");
@@ -48,9 +50,15 @@ function eventDelegation(e) {
          buildConcertItems(itineraryItem.textContent, itineraryItem.className);
       };
    });  let itemList = document.querySelectorAll("p").length;
-      if (itemList === 4) {
+         let lastItem = document.querySelector("#concert-container")
+      if (itemList === 4 && lastItem.nextElementSibling === null ) {
       let itemBox = document.querySelector('#itinerary-container')
+      const nameInput = buildInputElement("text", "nameIt")
+      nameInput.setAttribute("placeholder", "Name your itinerary")
+      itemBox.appendChild(nameInput)
+      
       const saveDOMButton = buildButtonElement("saveDOM", "Save Itinerary")
       saveDOMButton.addEventListener("click", saveDOM)
+
       itemBox.appendChild(saveDOMButton)}
 };

@@ -69,7 +69,7 @@ span:hover {
    cursor: pointer;
 }
 
-li {
+span li {
    width: 75%;
    /* float: left; */
    padding: 3px;  
@@ -91,10 +91,23 @@ div {
    font-size: 18px;
    display: flex;
    padding-inline-start: 10px;
-   justify-content: left;
+   align-items: center;
+   text-align: left;
    /* padding-left: 100px; */
 }
 
+#saveDOM {
+   padding:5px;
+   margin: 5px;
+   
+}
 
+#nameIt {
+   padding: 5px;
+   width: 75%;
+   align-self: center;
+}
 
-
+p {
+   margin-left: 10px;
+}

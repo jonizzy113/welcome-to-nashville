@@ -26,11 +26,14 @@ const buildButtonElement = (elementId, elementText, elementClass) => {
 
 
 const mainCont = document.querySelector(".main-container");
+
 //function that creates the template for building input fields 
 const fieldsetCreator = (itItem) => {
   const formFieldSet = (buildElementWithText("fieldset"));
   formFieldSet.appendChild(buildElementWithText("label", `Search for ${itItem}s: `));
-  formFieldSet.appendChild(buildInputElement("text", `${itItem}Input`));
+  const inputElement = buildInputElement("text", `${itItem}Input`);
+  inputElement.setAttribute("placeholder", "Enter a keyword");
+  formFieldSet.appendChild(inputElement);
   formFieldSet.appendChild(buildButtonElement(`${itItem}Button`, "Search", "searchButton"));
   return formFieldSet;
 };
@@ -72,7 +75,6 @@ const buildInputForm = () => {
   formSection.appendChild(fieldsetCreator("restaurant"));
   formSection.appendChild(fieldsetCreator("event"));
   formSection.appendChild(fieldsetCreator("concert"));
-  // formSection.appendChild(parkSelectElement())
   mainCont.appendChild(formSection);
 };
 
@@ -85,6 +87,7 @@ const createDOM = () => {
   searchContainer.addEventListener("click", eventDelegation);
   mainCont.appendChild(searchContainer);
   buildItineraryContainer();
+  mainCont.appendChild(buildElementWithText("section", "", "storeItineraries"))
 };
 
 const buildItineraryContainer = () => {
@@ -125,7 +128,8 @@ const buildParkItems = (string, ID) => {
   const createParkItem = buildElementWithText("p", string, ID);
   while (parkContainer.firstChild) {
     parkContainer.removeChild(parkContainer.firstChild);
-  }
+  };
+  parkContainer.textContent = "Park:"
   parkContainer.appendChild(createParkItem);
 };
 
@@ -135,6 +139,7 @@ const buildRestaurantItems = (string, ID) => {
   while (restaurantContainer.firstChild) {
     restaurantContainer.removeChild(restaurantContainer.firstChild);
   };
+  restaurantContainer.textContent = "Restaurant:"
   restaurantContainer.appendChild(createRestaurantItem);
 };
 
@@ -144,6 +149,7 @@ const buildEventItems = (string, ID) => {
   while (eventContainer.firstChild) {
     eventContainer.removeChild(eventContainer.firstChild);
   };
+  eventContainer.textContent = "Event:"
   eventContainer.appendChild(createEventItem);
 };
 
@@ -152,24 +158,52 @@ const buildConcertItems = (string, ID) => {
   const createConcertItem = buildElementWithText("p", string, ID);
   while (concertContainer.firstChild) {
     concertContainer.removeChild(concertContainer.firstChild);
-  }
+  };
+  concertContainer.textContent = "Concert:"
   concertContainer.appendChild(createConcertItem);
 };
 
+const emptyField = (element) => {
+  let parent = element.parentNode
+parent.removeChild(parent.childNodes[1])
+}
+
+const retrieveIt = (name) => {
+  getItinerary().then(data => {
+  itemContainer = document.querySelector("#storeItineraries");
+  data.forEach(obj => {
+    const item = buildElementWithText("p", obj);
+    itemContainer.appendChild(item);
+})})}
+
 
 const saveDOM = () => {
+  const nameDiv = document.querySelector("#nameIt")
+  if (nameDiv.value.length === 0) {
+    alert("Please enter a name for your intinerary!")
+  } else {
   const parkDiv = document.querySelector('#parkP')
   const restaurantDiv = document.querySelector('#restaurantP')
   const eventDiv = document.querySelector('#eventP')
   const concertDiv = document.querySelector('#concertP')
-  
+  const nameDiv = document.querySelector("#nameIt")
+
   let newItinerary = {
     Park: parkDiv.textContent,
     Restaurant: restaurantDiv.textContent,
     Event: eventDiv.textContent,
     Concert: concertDiv.textContent,
+    Name: nameDiv.value
   };
-console.log(newItinerary)
-postItinerary(newItinerary)
+  postItinerary(newItinerary)
 
+emptyField(parkDiv)
+emptyField(restaurantDiv)
+emptyField(eventDiv)
+emptyField(concertDiv)
+nameDiv.value = ""  
+retrieveIt();
 }
+}
+
+
