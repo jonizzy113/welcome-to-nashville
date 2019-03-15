@@ -18,4 +18,5 @@ const restaurantButton = document.querySelector("#restaurantButton");
 
 restaurantButton.addEventListener("click", searchRestaurantAPI);
 
+concertButton.addEventListener("click", searchConcertAPI);
 
