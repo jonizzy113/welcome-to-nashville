@@ -1,4 +1,4 @@
-const getConcertApi = (music) => {
+const getConcertAPI = (music) => {
    // CM: fetch api data Using the keys City = Nashville, Classification = Music, and finally the keyword being the argument
    return fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=nashville&size=10&apikey=jSWyAXpUAgvbhTQCtCaIYdCfWf356IYR&classificationName=music&keyword=${music}`)
       //CM: Take that data and Translates it into javascript  
@@ -20,5 +20,3 @@ const getConcertApi = (music) => {
 
 
 }
-
-getConcertApi("rap")
