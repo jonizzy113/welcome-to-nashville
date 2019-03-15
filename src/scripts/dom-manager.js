@@ -39,7 +39,7 @@ const fieldsetCreator = (itItem) => {
   return formFieldSet;
 };
 
-
+//following functions are for creating and formatting the dropdown menu. 
 
 const dropdownCreator = (itItem) => {
         const formFieldSet1 = (buildElementWithText("fieldset"));
@@ -93,6 +93,7 @@ const createDOM = () => {
   mainCont.appendChild(buildElementWithText("section", "", "storeItineraries"))
 };
 
+//function to create the structure of the ITcontainer which is used in the initial create DOM function.
 const buildItineraryContainer = () => {
   const itineraryContainer = (buildElementWithText("section", "", "itinerary-container"));
   itineraryContainer.appendChild((buildElementWithText("div", "Park:", "park-container")));
@@ -105,10 +106,12 @@ const buildItineraryContainer = () => {
 /*function that accepts an array of arrays, creates the structure for the search results, and appends them to the dom when the search button is clicked.*/
 const searchResultsObject = (array, API) => {
   const searchContainer = document.querySelector("#search-container");
+  //this while loop clears the results each time a search is made.
   while (searchContainer.firstChild) {
     searchContainer.removeChild(searchContainer.firstChild);
   }
   const createResultList = (buildElementWithText("ol", "Click item to add:", API));
+  //this foreach loop is used to run through the data from the API, and format each item into the correct html structure, along with adding individual ID's for each list item. 
   array.forEach((obj, index) => {
     const createListItem = buildElementWithText("li", obj.join(" : "), `${API}Item${index}`);
     createListItem.classList.add(`${API}P`);
@@ -124,7 +127,7 @@ const searchResultsObject = (array, API) => {
 
 
 
-
+//the following four functions are used to create the specific itinerary items, and only allow one item per category to be posted in the list. it also adds the text of the parent node back instead of letting it be replaced. 
 
 const buildParkItems = (string, ID) => {
 
@@ -170,10 +173,15 @@ const buildConcertItems = (string, ID) => {
   concertContainer.appendChild(createConcertItem);
 };
 
+
+//function that empties the fields in the itin conatainer
 const emptyField = (element) => {
   let parent = element.parentNode
 parent.removeChild(parent.childNodes[1])
 }
+
+
+//function that uses the search input's value to query our API and returns the content in an html format.
 
 const retrieveIt = (name) => {
   const searchDiv = document.querySelector("#searchItineraries").value
@@ -186,6 +194,7 @@ const retrieveIt = (name) => {
   })
 })};
 
+// this function creates a new search input and sumbit button, which has an event listener function attached to it.  
 
 const createItinerarySearch = () => {
   let itemContainer = document.querySelector("#storeItineraries");
@@ -195,8 +204,10 @@ const createItinerarySearch = () => {
       searchDOMButton.addEventListener("click", retrieveIt)
     itemContainer.appendChild(apiSearch);
     itemContainer.appendChild(searchDOMButton);
-    
+
 }
+
+/* this function is used by the saveDomButton to query the items in the intinerary container and post them to our API. It then empties the fields in the container, and runs a function to create an Intinerary search */
 
 const saveDOM = () => {
   const nameDiv = document.querySelector("#nameIt")
