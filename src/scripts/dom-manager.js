@@ -169,13 +169,26 @@ parent.removeChild(parent.childNodes[1])
 }
 
 const retrieveIt = (name) => {
-  getItinerary().then(data => {
-  itemContainer = document.querySelector("#storeItineraries");
-  data.forEach(obj => {
-    const item = buildElementWithText("p", obj);
+  const searchDiv = document.querySelector("#searchItineraries").value
+  getItinerary(searchDiv).then(data => {
+  let itemContainer = document.querySelector("#storeItineraries");
+  data.forEach(key => {
+    const item = buildElementWithText("p", key);
     itemContainer.appendChild(item);
-})})}
+  })
+})};
 
+
+const createItinerarySearch = () => {
+  let itemContainer = document.querySelector("#storeItineraries");
+  const apiSearch = buildInputElement("text", "searchItineraries");
+  apiSearch.setAttribute("placeholder", "Search for itineraries by name");
+  const searchDOMButton = buildButtonElement("saveDOM", "Search for an Itinerary")
+      searchDOMButton.addEventListener("click", retrieveIt)
+    itemContainer.appendChild(apiSearch);
+    itemContainer.appendChild(searchDOMButton);
+    
+}
 
 const saveDOM = () => {
   const nameDiv = document.querySelector("#nameIt")
@@ -187,6 +200,7 @@ const saveDOM = () => {
   const eventDiv = document.querySelector('#eventP')
   const concertDiv = document.querySelector('#concertP')
   const nameDiv = document.querySelector("#nameIt")
+
 
   let newItinerary = {
     Park: parkDiv.textContent,
@@ -201,9 +215,12 @@ emptyField(parkDiv)
 emptyField(restaurantDiv)
 emptyField(eventDiv)
 emptyField(concertDiv)
-nameDiv.value = ""  
-retrieveIt();
+nameDiv.value = ""
+createItinerarySearch();
+
 }
 }
+
+
 
 

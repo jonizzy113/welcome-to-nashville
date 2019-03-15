@@ -1,28 +1,3 @@
-// let itineraryContainer = document.querySelector("#itinerary-container")
-
-
-
-// const buildHtmlForitinerary = itineraryObject => {
-//    itineraryContainer.appendChild(buildElementWithText("p", itineraryObject.park, "domitinerary"));
-//    itineraryContainer.appendChild(buildElementWithText("p", itineraryObject.restaurant, "domitinerary"));
-//    itineraryContainer.appendChild(buildElementWithText("p", itineraryObject.event, "domitinerary"));
-//    itineraryContainer.appendChild(buildElementWithText("p", itineraryObject.concert, "domitinerary"));
-// };
-
-// const pullItinerary = () => {
-//    return fetch("http://localhost:8088/itinerary")
-//       .then(response => response.json())
-// }
-
-// const appendItinerarytoDom = itineraryArray => {
-
-//    itineraryArray.forEach(itinerary => {
-//      buildHtmlForitinerary(itinerary);
-//    });
-
-// }
-
-// pullItinerary().then(parsedResponse => appendItinerarytoDom(parsedResponse));
 
 const postItinerary = (newList) => {
    return fetch("http://localhost:8088/itinerary", {
@@ -37,13 +12,10 @@ const postItinerary = (newList) => {
 }
 
 
-const getItinerary = (getIt) => {
-   return fetch("http://localhost:8088/itinerary")
-      .then(response => response.json()).then(data => {
-        let mapData = data.map(element => {
-           const key = Object.values(element);
-           return key   
-         });
-          return mapData.slice(0,5);
-      
-})};
+const getItinerary = (name) => {
+   return fetch(`http://localhost:8088/itinerary?Name=${name}`)
+      .then(response => response.json()).then(data => { 
+         return Object.values(data[0]).slice(0, 4);
+      })}
+
+
