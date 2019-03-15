@@ -172,6 +172,8 @@ const retrieveIt = (name) => {
   const searchDiv = document.querySelector("#searchItineraries").value
   getItinerary(searchDiv).then(data => {
   let itemContainer = document.querySelector("#storeItineraries");
+      let itemContainer = document.querySelector("#storeItineraries");
+  itemContainer.appendChild(buildElementWithText("h3", searchDiv));
   data.forEach(key => {
     const item = buildElementWithText("p", key);
     itemContainer.appendChild(item);
