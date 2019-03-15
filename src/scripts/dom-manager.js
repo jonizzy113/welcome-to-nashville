@@ -1,26 +1,26 @@
 //three DOM contructor functions
 
 const buildElementWithText = (elementType, elementTextContent, elementID) => {
-  let htmlElement = document.createElement(elementType);
-  htmlElement.textContent = elementTextContent;
-  htmlElement.id = elementID;
-  return htmlElement;
+        let htmlElement = document.createElement(elementType);
+        htmlElement.textContent = elementTextContent;
+        htmlElement.id = elementID;
+        return htmlElement;
 };
 
 const buildInputElement = (elementType, elementId) => {
-  let htmlElement = document.createElement("input");
-  htmlElement.type = elementType;
-  htmlElement.id = elementId;
-  return htmlElement;
+        let htmlElement = document.createElement("input");
+        htmlElement.type = elementType;
+        htmlElement.id = elementId;
+        return htmlElement;
 };
 
 const buildButtonElement = (elementId, elementText, elementClass) => {
-  let button = document.createElement("button");
-  button.id = elementId;
-  button.setAttribute("type", "submit");
-  button.textContent = elementText;
-  button.classList.add(elementClass);
-  return button;
+        let button = document.createElement("button");
+        button.id = elementId;
+        button.setAttribute("type", "submit");
+        button.textContent = elementText;
+        button.classList.add(elementClass);
+        return button;
 }
 
 
@@ -29,6 +29,7 @@ const mainCont = document.querySelector(".main-container");
 
 //function that creates the template for building input fields 
 const fieldsetCreator = (itItem) => {
+
   const formFieldSet = (buildElementWithText("fieldset"));
   formFieldSet.appendChild(buildElementWithText("label", `Search for ${itItem}s: `));
   const inputElement = buildInputElement("text", `${itItem}Input`);
@@ -41,29 +42,29 @@ const fieldsetCreator = (itItem) => {
 
 
 const dropdownCreator = (itItem) => {
-  const formFieldSet1 = (buildElementWithText("fieldset"));
-  formFieldSet1.appendChild(buildElementWithText("label", `Search for ${itItem}s: `));
-  formFieldSet1.appendChild(parkSelectElement());
-  formFieldSet1.appendChild(buildButtonElement(`${itItem}Button`, "Search", "searchButton"));
-  return formFieldSet1;
+        const formFieldSet1 = (buildElementWithText("fieldset"));
+        formFieldSet1.appendChild(buildElementWithText("label", `Search for ${itItem}s: `));
+        formFieldSet1.appendChild(parkSelectElement());
+        formFieldSet1.appendChild(buildButtonElement(`${itItem}Button`, "Search", "searchButton"));
+        return formFieldSet1;
 };
 
 const buildOptionElement = (value, text, id) => {
-  const option = document.createElement("option");
-  option.value = value;
-  option.textContent = text;
-  return option;
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = text;
+        return option;
 };
 
 const parkSelectElement = () => {
-  const formSelect = document.createElement("select");
-  formSelect.id = "parkInput";
-  formSelect.appendChild(buildOptionElement("dog_park", "Dog Park"));
-  formSelect.appendChild(buildOptionElement("boat_launch", "Boat Launch"));
-  formSelect.appendChild(buildOptionElement("skate_park", "Skate Park"));
-  formSelect.appendChild(buildOptionElement("volleyball", "Volleyball"));
-  formSelect.appendChild(buildOptionElement("tennis_courts", "Tennis Court"));
-  return formSelect;
+        const formSelect = document.createElement("select");
+        formSelect.id = "parkInput";
+        formSelect.appendChild(buildOptionElement("dog_park", "Dog Park"));
+        formSelect.appendChild(buildOptionElement("boat_launch", "Boat Launch"));
+        formSelect.appendChild(buildOptionElement("skate_park", "Skate Park"));
+        formSelect.appendChild(buildOptionElement("volleyball", "Volleyball"));
+        formSelect.appendChild(buildOptionElement("tennis_courts", "Tennis Court"));
+        return formSelect;
 };
 
 //function that creates the input form section and append to DOM
@@ -76,11 +77,13 @@ const buildInputForm = () => {
   formSection.appendChild(fieldsetCreator("event"));
   formSection.appendChild(fieldsetCreator("concert"));
   mainCont.appendChild(formSection);
+
 };
 
 
 //function to create initial HTML structures
 const createDOM = () => {
+
   mainCont.appendChild(buildElementWithText("h1", "Nashville Itinerary Planner"));
   buildInputForm();
   const searchContainer = buildElementWithText("section", "", "search-container");
@@ -124,6 +127,7 @@ const searchResultsObject = (array, API) => {
 
 
 const buildParkItems = (string, ID) => {
+
   const parkContainer = document.querySelector("#park-container");
   const createParkItem = buildElementWithText("p", string, ID);
   while (parkContainer.firstChild) {
@@ -144,6 +148,7 @@ const buildRestaurantItems = (string, ID) => {
 };
 
 const buildEventItems = (string, ID) => {
+
   const eventContainer = document.querySelector("#event-container");
   const createEventItem = buildElementWithText("p", string, ID);
   while (eventContainer.firstChild) {
@@ -151,9 +156,11 @@ const buildEventItems = (string, ID) => {
   };
   eventContainer.textContent = "Event:"
   eventContainer.appendChild(createEventItem);
+
 };
 
 const buildConcertItems = (string, ID) => {
+
   const concertContainer = document.querySelector("#concert-container");
   const createConcertItem = buildElementWithText("p", string, ID);
   while (concertContainer.firstChild) {
