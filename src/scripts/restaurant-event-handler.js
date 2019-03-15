@@ -1,62 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const key = "f86bf5c13d03c028aafe4818c8c4aa41"
 
 const getRestaurantAPI = (restaurantInputValue) => {
@@ -82,6 +24,6 @@ const getRestaurantAPI = (restaurantInputValue) => {
                         const comboData = data.map(info => {
                                 comboInfo = [info.name, info.location.address]
                                 return comboInfo;
-                        }); return comboData;
+                        }); return comboData.slice(0,10);
                 })
 };

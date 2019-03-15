@@ -1,38 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const getEventAPI = (keyword) => {
   return fetch(
      `https://www.eventbriteapi.com/v3/events/search/?q=${keyword}&location.address=nashville&expand=venue&token=PWTYFCY4EA2D7ZA3SVWG`, {
@@ -53,10 +18,9 @@ const getEventAPI = (keyword) => {
      }); 
      return eventsCombo
   }).then(data => {
-     return data
+     return data.slice(0,10);
   })
 };
 
-getEventAPI("meetups");
 
 
