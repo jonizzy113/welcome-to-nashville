@@ -7,11 +7,14 @@ html {
    display: flex;
    max-width: 1200px; 
    margin: 0 auto;
-   flex-direction: column;
+   flex-direction: row;
+   align-items: center;
+   flex-wrap: wrap;
 }
 h1 {
    width:100%;
    margin: 0 auto;
+   text-align: center;
 }
 
 form {
@@ -19,7 +22,7 @@ form {
    flex-direction: column;
    margin: 20px auto;
    justify-items: center;
-   min-width: 420px;
+   min-width: 300px;
 }
 
 fieldset {
@@ -30,7 +33,7 @@ fieldset {
 }
 
 .searchButton, input {
-   /* float: right; */
+   float: right;
    
 }
 
@@ -74,17 +77,22 @@ li {
 
 #itinerary-container {
    display: flex;
+   width: 100%;
+   margin: 0 20%;
    justify-content: center;
    flex-direction: column;
+   margin-bottom: 50px;
+   border: 2px solid black;
 }
 
 div {
    margin: 0 auto;
-   width: 75%;
+   width: 100%;
    font-size: 18px;
    display: flex;
+   padding-inline-start: 10px;
    justify-content: left;
-   padding-left: 100px;
+   /* padding-left: 100px; */
 }
 
 

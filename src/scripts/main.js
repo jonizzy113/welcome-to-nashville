@@ -19,3 +19,12 @@ const restaurantButton = document.querySelector("#restaurantButton");
 restaurantButton.addEventListener("click", searchRestaurantAPI);
 
 
+
+
+
+
+// if (parkDiv.hasChildNodes && restaurantDiv.hasChildNodes && eventDiv.hasChildNodes && concertDiv.hasChildNodes) {
+//    console.log("hello")}
+
+
+

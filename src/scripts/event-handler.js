@@ -34,7 +34,6 @@ function eventDelegation(e) {
    let createResultList = document.querySelector("ol");
    let list = document.querySelectorAll("li");
    let arrayList = Array.from(list);
-   buildElementWithText("section")
    arrayList.forEach(itineraryItem => {
       if (target === itineraryItem && createResultList.id === "park") {
          buildParkItems(itineraryItem.textContent, itineraryItem.className);
@@ -48,5 +47,10 @@ function eventDelegation(e) {
       if (target === itineraryItem && createResultList.id === "concert") {
          buildConcertItems(itineraryItem.textContent, itineraryItem.className);
       };
-   });
+   });  let itemList = document.querySelectorAll("p").length;
+      if (itemList === 4) {
+      let itemBox = document.querySelector('#itinerary-container')
+      const saveDOMButton = buildButtonElement("saveDOM", "Save Itinerary")
+      saveDOMButton.addEventListener("click", saveDOM)
+      itemBox.appendChild(saveDOMButton)}
 };

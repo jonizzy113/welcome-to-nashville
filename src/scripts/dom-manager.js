@@ -84,13 +84,17 @@ const createDOM = () => {
   const searchContainer = buildElementWithText("section", "", "search-container");
   searchContainer.addEventListener("click", eventDelegation);
   mainCont.appendChild(searchContainer);
-  const itineraryContainer = (buildElementWithText("section", "", "itinerary-container"));
-  itineraryContainer.appendChild((buildElementWithText("div", "", "park-container")));
-  itineraryContainer.appendChild((buildElementWithText("div", "", "restaurant-container")));
-  itineraryContainer.appendChild((buildElementWithText("div", "", "event-container")));
-  itineraryContainer.appendChild((buildElementWithText("div", "", "concert-container")));
-  mainCont.appendChild(itineraryContainer);
+  buildItineraryContainer();
 };
+
+const buildItineraryContainer = () => {
+  const itineraryContainer = (buildElementWithText("section", "", "itinerary-container"));
+  itineraryContainer.appendChild((buildElementWithText("div", "Park:", "park-container")));
+  itineraryContainer.appendChild((buildElementWithText("div", "Restaurant:", "restaurant-container")));
+  itineraryContainer.appendChild((buildElementWithText("div", "Event:", "event-container")));
+  itineraryContainer.appendChild((buildElementWithText("div", "Concert:", "concert-container")));
+  mainCont.appendChild(itineraryContainer);
+}
 
 /*function that accepts an array of arrays, creates the structure for the search results, and appends them to the dom when the search button is clicked.*/
 const searchResultsObject = (array, API) => {
@@ -101,14 +105,16 @@ const searchResultsObject = (array, API) => {
   const createResultList = (buildElementWithText("ol", "Click item to add:", API));
   array.forEach((obj, index) => {
     const createListItem = buildElementWithText("li", obj.join(" : "), `${API}Item${index}`);
-    createListItem.classList.add(API);
+    createListItem.classList.add(`${API}P`);
     const createSpan = buildElementWithText("span", "", index);
     createSpan.appendChild(createListItem);
-
     createResultList.appendChild(createSpan);
+    searchContainer.appendChild(createResultList);
+
   });
-  searchContainer.appendChild(createResultList);
+
 };
+
 
 
 
@@ -131,6 +137,7 @@ const buildRestaurantItems = (string, ID) => {
   };
   restaurantContainer.appendChild(createRestaurantItem);
 };
+
 const buildEventItems = (string, ID) => {
   const eventContainer = document.querySelector("#event-container");
   const createEventItem = buildElementWithText("p", string, ID);
@@ -139,6 +146,7 @@ const buildEventItems = (string, ID) => {
   };
   eventContainer.appendChild(createEventItem);
 };
+
 const buildConcertItems = (string, ID) => {
   const concertContainer = document.querySelector("#concert-container");
   const createConcertItem = buildElementWithText("p", string, ID);
@@ -147,3 +155,21 @@ const buildConcertItems = (string, ID) => {
   }
   concertContainer.appendChild(createConcertItem);
 };
+
+
+const saveDOM = () => {
+  const parkDiv = document.querySelector('#parkP')
+  const restaurantDiv = document.querySelector('#restaurantP')
+  const eventDiv = document.querySelector('#eventP')
+  const concertDiv = document.querySelector('#concertP')
+  
+  let newItinerary = {
+    Park: parkDiv.textContent,
+    Restaurant: restaurantDiv.textContent,
+    Event: eventDiv.textContent,
+    Concert: concertDiv.textContent,
+  };
+console.log(newItinerary)
+postItinerary(newItinerary)
+
+}
