@@ -1,17 +1,22 @@
-// // queries ticketmaster API for Nashville Concerts and returns an Array of Arrays which include the artist name and event date
-
-const getConcertAPI = (keyword) => {
-   return fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=nashville&size=10&apikey=jSWyAXpUAgvbhTQCtCaIYdCfWf356IYR&classificationName=music&keyword=${keyword}`)
-      .then(response => response.json())
-      
-      .then(data => {
-         const concertInfo = data._embedded.events;
+const getConcertAPI = (music) => {
+   // CM: fetch api data Using the keys City = Nashville, Classification = Music, and finally the keyword being the argument
+   return fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=nashville&size=10&apikey=jSWyAXpUAgvbhTQCtCaIYdCfWf356IYR&classificationName=music&keyword=${music}`)
+      //CM: Take that data and Translates it into javascript  
+      .then(musicResponse => musicResponse.json())
+      .then(response => {
+         // CM: Take the data and set a variable equal to the array I need to target in order to us .map method     
+         const concertInfo = response._embedded.events;
          return concertInfo
-      }).then(data => {
-         const artistList = data.map(element => {
-            const combo = [element.name, element._embedded.venues[0].name]
+      })
+      .then(data => {
+         //CM: Used .map method in order to target specefic keys and put them into an array
+         const venueInfo = data.map(musicArrays => {
+            const combo = [musicArrays.name, musicArrays._embedded.venues[0].name]
             return combo;
 
-         }); return artistList
+         })
+         return venueInfo;
       })
+
+
 }

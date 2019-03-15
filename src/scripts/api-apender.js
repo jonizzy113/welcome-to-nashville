@@ -17,5 +17,3 @@ const getItinerary = (name) => {
       .then(response => response.json()).then(data => { 
          return Object.values(data[0]).slice(0, 4);
       })}
-
-
