@@ -17,7 +17,7 @@ h1 {
 form {
    display: flex;
    flex-direction: column;
-   margin: auto;
+   margin: 20px auto;
    justify-items: center;
    min-width: 420px;
 }
@@ -58,20 +58,34 @@ span {
    flex-wrap: wrap;
 
 }
+
+span:hover {
+   background-color: lightblue;
+   border-width: 3px;
+   margin: 5px;
+   cursor: pointer;
+}
+
 li {
    width: 75%;
    /* float: left; */
    padding: 3px;  
 }
 
-.saveButton {
-   /* float: right; */
-   margin: 3px;
-   width:20%;
-   flex-grow: 0;
+#itinerary-container {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
 }
 
-
+div {
+   margin: 0 auto;
+   width: 75%;
+   font-size: 18px;
+   display: flex;
+   justify-content: left;
+   padding-left: 100px;
+}
 
 
 
