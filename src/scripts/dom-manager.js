@@ -147,4 +147,3 @@ const buildConcertItems = (string, ID) => {
   }
   concertContainer.appendChild(createConcertItem);
 };
-

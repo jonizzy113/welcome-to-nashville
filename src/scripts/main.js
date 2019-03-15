@@ -17,3 +17,6 @@ eventButton.addEventListener("click", searchEventAPI);
 const restaurantButton = document.querySelector("#restaurantButton");
 
 restaurantButton.addEventListener("click", searchRestaurantAPI);
+
+concertButton.addEventListener("click", searchConcertAPI);
+

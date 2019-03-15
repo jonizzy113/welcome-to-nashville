@@ -24,4 +24,3 @@ const appendItinerarytoDom = itineraryArray => {
 }
 
 pullItinerary().then(parsedResponse => appendItinerarytoDom(parsedResponse));
-
